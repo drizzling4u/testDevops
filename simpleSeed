@@ -1,0 +1,12 @@
+job('newJobWithParameterPub') {
+  parameters {
+    stringParam('Object', 'Undescribed', 'this is default vaue')
+  }
+  steps {
+    shell('echo $JOB_NAME $BUILD_NUMBER')
+    shell('echo $Object')
+  }
+  publishers {
+    downstream('newJob' ,'SUCCESS')
+}
+}
